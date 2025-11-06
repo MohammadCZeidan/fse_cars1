@@ -19,11 +19,14 @@ if($id == -1){
 $query->execute();
 
 $array = $query->get_result();
+
 $response = [];
+$response["success"] = true;
+$response["data"] = [];
 while($article = $array->fetch_assoc()){
-    $response[] = $article;
+    $response["data"][] = $article;
 }
 
 echo json_encode($response);
 
-?>
+?> 
